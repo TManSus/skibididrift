@@ -3,6 +3,8 @@ using UnityEngine;
 public class carmove : MonoBehaviour
 {
     Rigidbody rb;
+    public GameObject cameraGO;
+    public GameObject cameraParentGO;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -13,7 +15,14 @@ public class carmove : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W))
         {
-            rb.AddTorque(0, 0, 10, ForceMode.Force);
+            rb.AddTorque(transform.forward.x * 10, transform.forward.y * 10, transform.forward.z * 10, ForceMode.Force);
         }
+        CamHandle();
+    }
+    void CamHandle()
+    {
+        cameraParentGO.transform.position = transform.position;
+        cameraGO.transform.rotation = Quaternion.Euler(10, transform.rotation.y -90, 0);
+        cameraGO.transform.rotation = Quaternion.Euler(10, transform.rotation.y - 90, 0);
     }
 }
