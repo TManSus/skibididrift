@@ -15,7 +15,6 @@ public class MoverAutito : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//<<<<<<< HEAD
         if (Input.GetKey(KeyCode.W))
         {
             car.AddForce(Vector3.right * -carSpeed, ForceMode.Acceleration);
@@ -24,8 +23,5 @@ public class MoverAutito : MonoBehaviour
         {
             carSound.Play();
         }
-//=======
-        Destroy(gameObject);
-//>>>>>>> f3ec071af5fd2701399657dea67978a2c7820cfd
     }
 }
